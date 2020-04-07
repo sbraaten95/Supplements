@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sbraaten95/Supplements/issues"
   },
-  "homepage": "https://github.com/sbraaten95/Supplements#readme"
+  "homepage": "https://github.com/sbraaten95/Supplements#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
 }
