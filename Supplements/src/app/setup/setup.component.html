@@ -1,0 +1,153 @@
+<div class="m-auto">
+  <div class="row mb-3" id="setupContainer">
+    <div class="col-sm text-center">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        data-toggle="modal"
+        data-target="#createAccountFormModal"
+      >
+        Create Account
+      </button>
+      <div
+        class="modal fade"
+        id="createAccountFormModal"
+        tabindex="1"
+        role="dialog"
+      >
+        <div class="modal-dialog bg-white" role="document">
+          <div class="modal-header">
+            <h5 class="modal-title">Create Account</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="createAccountForm">
+              <div class="form-group">
+                <label for="inputName">Your Name</label>
+                <input type="text" class="form-control" id="inputName" />
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Email Address</label>
+                <input type="email" class="form-control" id="inputEmail" />
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputPassword"
+                />
+                <small class="form-text text-muted"
+                  >Contains >6 alphanumeric symbols with at least one
+                  digit.</small
+                >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <!--Don't forget to switch type to submit-->
+            <button
+              type="button"
+              class="btn btn-primary"
+              form="createAccountForm"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-center">
+      <p>OR</p>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm text-center">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        data-toggle="modal"
+        data-target="#loginFormModal"
+      >
+        Log In
+      </button>
+      <div class="modal fade" id="loginFormModal" tabindex="1" role="dialog">
+        <div class="modal-dialog bg-white" role="document">
+          <div class="modal-header">
+            <h5 class="modal-title">Log In</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="loginForm">
+              <div class="form-group">
+                <label for="inputEmail">Email Address</label>
+                <input type="email" class="form-control" id="inputEmail" />
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputPassword"
+                />
+              </div>
+              <!--Forgot password?-->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <!--Don't forget to switch type to submit-->
+            <button type="button" class="btn btn-primary" form="loginForm">
+              Log In
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-center">
+      <p>OR</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-center">
+      <button
+        type="button"
+        routerLink="/questionnaire"
+        class="btn btn-primary btn-lg"
+      >
+        Continue as Guest
+      </button>
+    </div>
+  </div>
+</div>

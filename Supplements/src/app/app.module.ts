@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { OktaAuthModule } from '@okta/okta-angular';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +13,8 @@ import { SupplementsComponent } from './supplements/supplements.component';
 import { ScienceComponent } from './science/science.component';
 import { MyplanComponent } from './myplan/myplan.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SetupComponent } from './setup/setup.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +23,22 @@ import { ProfileComponent } from './profile/profile.component';
     SupplementsComponent,
     ScienceComponent,
     MyplanComponent,
-    ProfileComponent
+    ProfileComponent,
+    SetupComponent,
+    QuestionnaireComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    OktaAuthModule.initAuth({
+      issuer: 'https://dev-610733.okta.com/oauth2/default',
+      redirectUri: 'http://localhost:4200/implicit/callback',
+      clientId: '0oa5lx6wsKwgrCxZa4x6',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
