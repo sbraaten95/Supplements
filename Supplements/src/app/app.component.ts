@@ -9,7 +9,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class AppComponent implements OnInit {
   title = 'Supplements';
-  isAuthenticated: boolean;
+  isAuthenticated = false;
 
   constructor(public oktaAuth: OktaAuthService) {
     this.oktaAuth.$authenticationState.subscribe(

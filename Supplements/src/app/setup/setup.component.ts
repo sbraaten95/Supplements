@@ -1,8 +1,9 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { SupplementsService } from '../supplements.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-setup',
@@ -17,7 +18,8 @@ export class SetupComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private supplement: SupplementsService
+    private supplement: SupplementsService,
+    private appComponent: AppComponent
   ) {
     this.mainForm();
   }
