@@ -17,8 +17,10 @@ export class AppComponent implements OnInit {
     );
   }
 
-  async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+  ngOnInit() {
+    this.oktaAuth.isAuthenticated().then((auth) => {
+      this.isAuthenticated = auth;
+    });
   }
 
   login() {

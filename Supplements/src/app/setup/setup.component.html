@@ -10,63 +10,103 @@
         Create Account
       </button>
       <div
-        class="modal fade"
+        class="modal"
         id="createAccountFormModal"
-        tabindex="1"
+        tabindex="-1"
         role="dialog"
       >
         <div class="modal-dialog bg-white" role="document">
-          <div class="modal-header">
-            <h5 class="modal-title">Create Account</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="createAccountForm">
-              <div class="form-group">
-                <label for="inputName">Your Name</label>
-                <input type="text" class="form-control" id="inputName" />
-              </div>
-              <div class="form-group">
-                <label for="inputEmail">Email Address</label>
-                <input type="email" class="form-control" id="inputEmail" />
-              </div>
-              <div class="form-group">
-                <label for="inputEmail">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="inputPassword"
-                />
-                <small class="form-text text-muted"
-                  >Contains >6 alphanumeric symbols with at least one
-                  digit.</small
-                >
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <!--Don't forget to switch type to submit-->
-            <button
-              type="button"
-              class="btn btn-primary"
-              form="createAccountForm"
-            >
-              Submit
-            </button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create Account</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form
+                id="createAccountForm"
+                [formGroup]="userForm"
+                (ngSubmit)="onSubmit()"
+              >
+                <div class="form-group">
+                  <label for="inputName">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName"
+                    formControlName="name"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="submitted && myForm.name.errors?.required"
+                  >
+                    Name is required.
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEmail">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    formControlName="email"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="submitted && myForm.email.errors?.required"
+                  >
+                    Enter your email.
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="submitted && myForm.email.errors?.pattern"
+                  >
+                    Enter valid email.
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEmail">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    formControlName="password"
+                  />
+                  <small class="form-text text-muted"
+                    >Contains >6 alphanumeric symbols with at least one
+                    digit.</small
+                  >
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                form="createAccountForm"
+                id="createAccountFormModalButton"
+                data-toggle="modal"
+                data-target="#createAccountFormModal"
+              >
+                Submit
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +127,7 @@
       >
         Log In
       </button>
-      <div class="modal fade" id="loginFormModal" tabindex="1" role="dialog">
+      <div class="modal" id="loginFormModal" tabindex="1" role="dialog">
         <div class="modal-dialog bg-white" role="document">
           <div class="modal-header">
             <h5 class="modal-title">Log In</h5>
