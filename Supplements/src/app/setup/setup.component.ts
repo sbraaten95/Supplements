@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { SupplementsService } from '../supplements.service';
 import { AppComponent } from '../app.component';
+import { AuthService } from '../auth.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-setup',
@@ -13,9 +15,11 @@ import { AppComponent } from '../app.component';
 export class SetupComponent implements OnInit {
   submitted = false;
   userForm: FormGroup;
+  currentUser: User;
 
   constructor(
     public fb: FormBuilder,
+    public authService: AuthService,
     private router: Router,
     private ngZone: NgZone,
     private supplement: SupplementsService,
@@ -52,8 +56,7 @@ export class SetupComponent implements OnInit {
     } else {
       this.supplement.createUser(this.userForm.value).subscribe(
         (res) => {
-          console.log('User successfully created!');
-          this.ngZone.run(() => this.router.navigateByUrl('/profile'));
+          this.ngZone.run(() => this.router.navigateByUrl(`/login`));
         },
         (error) => {
           console.log(error);

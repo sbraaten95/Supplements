@@ -21,7 +21,7 @@ mongoose
   );
 
 // Setting up port with express js
-const employeeRoute = require("../backend/routes/employee.route");
+const employeeRoute = require("../backend/routes/user.route");
 const app = express();
 app.use(bodyParser.json());
 app.use(

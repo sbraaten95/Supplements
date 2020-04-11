@@ -27,20 +27,20 @@
           <li class="nav-item">
             <a href="#" routerLink="/science" class="nav-link">Science</a>
           </li>
-          <li *ngIf="isAuthenticated" class="nav-item">
+          <li *ngIf="loggedIn()" class="nav-item">
             <a href="#" routerLink="/myplan" class="nav-link">My Plan</a>
           </li>
-          <li *ngIf="!isAuthenticated" class="nav-item">
+          <li *ngIf="!loggedIn()" class="nav-item">
             <a href="#" routerLink="/myplan" class="nav-link">Create a Plan</a>
           </li>
-          <li *ngIf="isAuthenticated" class="nav-item">
+          <li *ngIf="loggedIn()" class="nav-item">
             <a href="#" routerLink="/profile" class="nav-link">Profile</a>
           </li>
-          <li *ngIf="!isAuthenticated" class="nav-item">
-            <a href="#" (click)="login()" class="nav-link">Log In</a>
+          <li *ngIf="!loggedIn()" class="nav-item">
+            <a href="#" routerLink="/login" class="nav-link">Log In</a>
           </li>
-          <li *ngIf="isAuthenticated" class="nav-item">
-            <a href="#" (click)="logout()" class="nav-link">Log Out</a>
+          <li *ngIf="loggedIn()" class="nav-item">
+            <a href="#" class="nav-link" (click)="logout()">Log Out</a>
           </li>
         </ul>
       </div>

@@ -6,6 +6,9 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+import { User } from './model/user';
 
 @Injectable({
   providedIn: 'root',
@@ -13,23 +16,46 @@ import {
 export class SupplementsService {
   baseUri: string = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+  currentUser = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public router: Router) {}
 
   // Create
   createUser(data): Observable<any> {
-    let url = `${this.baseUri}/create`;
+    let url = `${this.baseUri}/users/register`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
+  }
+
+  login(user: User) {
+    let url = `${this.baseUri}/users/login`;
+    return this.http.post<any>(url, user).subscribe((res: any) => {
+      localStorage.setItem('access_token', res[0]._id);
+      this.getUser(res[0]._id).subscribe((res) => {
+        this.currentUser = res;
+        this.router.navigate(['profile/' + res._id]);
+      });
+    });
+  }
+
+  isLoggedIn() {
+    let authToken = localStorage.getItem('access_token');
+    return authToken !== null ? true : false;
+  }
+
+  logout() {
+    if (localStorage.removeItem('access_token') == null) {
+      this.router.navigate(['/']);
+    }
   }
 
   // Get all employees
   getUsers() {
-    return this.http.get(`${this.baseUri}`);
+    return this.http.get(`${this.baseUri}/users`);
   }
 
   // Get employee
   getUser(id): Observable<any> {
-    let url = `${this.baseUri}/read/${id}`;
+    let url = `${this.baseUri}/users/${id}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -49,9 +75,7 @@ export class SupplementsService {
   // Delete employee
   deleteUser(id): Observable<any> {
     let url = `${this.baseUri}/delete/${id}`;
-    return this.http
-      .delete(url, { headers: this.headers })
-      .pipe(catchError(this.errorMgmt));
+    return this.http.delete(url).pipe(catchError(this.errorMgmt));
   }
 
   // Error handling

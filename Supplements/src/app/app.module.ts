@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-import { OktaAuthModule } from '@okta/okta-angular';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { AuthInterceptor } from './auth.interceptor';
 
 import { HomeComponent } from './home/home.component';
 import { SupplementsComponent } from './supplements/supplements.component';
@@ -19,6 +19,7 @@ import { SetupComponent } from './setup/setup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 import { SupplementsService } from './supplements.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SupplementsService } from './supplements.service';
     ProfileComponent,
     SetupComponent,
     QuestionnaireComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,13 +40,15 @@ import { SupplementsService } from './supplements.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    OktaAuthModule.initAuth({
-      issuer: 'https://dev-610733.okta.com/oauth2/default',
-      redirectUri: 'http://localhost:4200/implicit/callback',
-      clientId: '0oa5lx6wsKwgrCxZa4x6',
-    }),
   ],
-  providers: [SupplementsService],
+  providers: [
+    SupplementsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
