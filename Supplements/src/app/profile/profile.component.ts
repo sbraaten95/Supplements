@@ -11,20 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   currentUser: {};
-  name: string;
-  email: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private supplement: SupplementsService
   ) {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.supplement.getUser(id).subscribe((res) => {
-      console.log(res);
-      this.currentUser = res;
-      this.name = res.name;
-      this.email = res.email;
-    });
+    this.supplement.getUser(id).subscribe((res) => {});
+    this.populateData();
   }
 
   ngOnInit(): void {}
@@ -42,4 +36,9 @@ export class ProfileComponent implements OnInit {
   //   });
   //   this.readUser();
   // }
+
+  populateData() {
+    this.currentUser = this.supplement.currentUser;
+    console.log(this.currentUser);
+  }
 }

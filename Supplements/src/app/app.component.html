@@ -31,10 +31,12 @@
             <a href="#" routerLink="/myplan" class="nav-link">My Plan</a>
           </li>
           <li *ngIf="!loggedIn()" class="nav-item">
-            <a href="#" routerLink="/myplan" class="nav-link">Create a Plan</a>
+            <a href="#" routerLink="/setup" class="nav-link">Create a Plan</a>
           </li>
           <li *ngIf="loggedIn()" class="nav-item">
-            <a href="#" routerLink="/profile" class="nav-link">Profile</a>
+            <a href="#" routerLink="{{ profileUrl }}" class="nav-link"
+              >Profile</a
+            >
           </li>
           <li *ngIf="!loggedIn()" class="nav-item">
             <a href="#" routerLink="/login" class="nav-link">Log In</a>

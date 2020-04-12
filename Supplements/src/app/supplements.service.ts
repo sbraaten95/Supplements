@@ -20,6 +20,10 @@ export class SupplementsService {
 
   constructor(private http: HttpClient, public router: Router) {}
 
+  getCurrentUser(context, callback) {
+    callback(context, this.currentUser);
+  }
+
   // Create
   createUser(data): Observable<any> {
     let url = `${this.baseUri}/users/register`;

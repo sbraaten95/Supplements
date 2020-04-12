@@ -3,10 +3,10 @@
     <div class="col-xs-12">
       <h2 class="mb-4">Your User Information</h2>
       <p>
-        <strong>Name: <label [(ngModel)]="name"></label></strong>
+        <strong>Name: {{ this.currentUser.name }}</strong>
       </p>
       <p>
-        <strong>Email: <label [(ngModel)]="email"></label></strong>
+        <strong>Email: {{ this.currentUser.email }}</strong>
       </p>
     </div>
   </div>
