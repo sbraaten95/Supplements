@@ -2,7 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { SupplementsService } from '../supplements.service';
+import { UserService } from '../users.service';
 import { AppComponent } from '../app.component';
 import { AuthService } from '../auth.service';
 import { User } from '../model/user';
@@ -22,7 +22,7 @@ export class SetupComponent implements OnInit {
     public authService: AuthService,
     private router: Router,
     private ngZone: NgZone,
-    private supplement: SupplementsService,
+    private userService: UserService,
     private appComponent: AppComponent
   ) {
     this.mainForm();
@@ -54,7 +54,7 @@ export class SetupComponent implements OnInit {
     if (!this.userForm.valid) {
       return false;
     } else {
-      this.supplement.createUser(this.userForm.value).subscribe(
+      this.userService.createUser(this.userForm.value).subscribe(
         (res) => {
           this.ngZone.run(() => this.router.navigateByUrl(`/login`));
         },

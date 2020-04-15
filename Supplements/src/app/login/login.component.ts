@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { SupplementsService } from '../supplements.service';
+import { UserService } from '../users.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public supplement: SupplementsService,
+    public userService: UserService,
     public router: Router
   ) {
     this.mainForm();
@@ -36,6 +36,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   loginUser() {
-    this.supplement.login(this.loginForm.value);
+    this.userService.login(this.loginForm.value);
   }
 }

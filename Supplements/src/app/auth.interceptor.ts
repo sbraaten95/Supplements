@@ -4,14 +4,14 @@ import {
   HttpRequest,
   HttpHandler,
 } from '@angular/common/http';
-import { AuthService } from './auth.service';
+import { UserService } from './users.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(private userService: UserService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const accessToken = this.authService.getAccessToken();
+    const accessToken = this.userService.getAccessToken();
     req = req.clone({
       setHeaders: {
         Authorization: `JWT ${accessToken}`,

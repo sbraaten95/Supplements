@@ -18,7 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SetupComponent } from './setup/setup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
-import { SupplementsService } from './supplements.service';
+import { UserService } from './users.service';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -42,7 +42,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
   ],
   providers: [
-    SupplementsService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

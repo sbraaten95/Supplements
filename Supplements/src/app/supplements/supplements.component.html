@@ -1,1 +1,117 @@
-<p>supplements works!</p>
+<div class="container">
+  <!-- No data message -->
+  <p *ngIf="Supplement.length <= 0" class="no-data text-center">
+    There is no Supplement added yet!
+  </p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 register-employee">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="supplementForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input class="form-control" type="text" formControlName="name" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm.name.errors?.required"
+            >
+              Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="description"
+            />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm.decription.errors?.required"
+            >
+              Enter your decription.
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm.decription.errors?.pattern"
+            >
+              Enter valid decription.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputCategory">Category</label>
+            <select
+              class="custom-select form-control"
+              formControlName="category"
+              (change)="updateSupplementCategory($event.target.value)"
+            >
+              <option value="">Choose...</option>
+              <option
+                *ngFor="let suppCat of SupplementCategory"
+                value="{{ suppCat }}"
+                >{{ suppCat }}
+              </option>
+            </select>
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm.category.errors?.required"
+            >
+              Choose category.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="purchaseUrlInput">Purchase Website</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="purchaseUrl"
+            />
+            <!-- error -->
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">
+              Create
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- form card register -->
+
+    <!-- Supplement list -->
+    <table class="table table-bordered" *ngIf="Supplement.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">Supplement ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Designation</th>
+          <th scope="col">Phone No</th>
+          <th scope="col center">Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Supplement of Supplement; let i = index">
+          <th scope="row">{{ Supplement._id }}</th>
+          <td>{{ Supplement.name }}</td>
+          <td>{{ Supplement.decription }}</td>
+          <td>{{ Supplement.category }}</td>
+          <td>{{ Supplement.purchaseUrl }}</td>
+          <td class="text-center edit-block">
+            <!-- <span class="delete" (click)="removeSupplement(Supplement, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

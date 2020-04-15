@@ -13,15 +13,19 @@ import { User } from './model/user';
 @Injectable({
   providedIn: 'root',
 })
-export class SupplementsService {
+export class UserService {
   baseUri: string = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-  currentUser = {};
+  currentUser = new User();
 
   constructor(private http: HttpClient, public router: Router) {}
 
-  getCurrentUser(context, callback) {
-    callback(context, this.currentUser);
+  getCurrentUser() {
+    let id = localStorage.getItem('access_token');
+    this.getUser(id).subscribe((res) => {
+      this.currentUser = res;
+    });
+    console.log(this.currentUser);
   }
 
   // Create
@@ -50,6 +54,10 @@ export class SupplementsService {
     if (localStorage.removeItem('access_token') == null) {
       this.router.navigate(['/']);
     }
+  }
+
+  getAccessToken() {
+    return localStorage.getItem('access_token');
   }
 
   // Get all employees

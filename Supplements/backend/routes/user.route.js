@@ -41,6 +41,7 @@ userRoute.route("/users").get((req, res) => {
 // Get single User
 userRoute.route("/users/:id").get((req, res) => {
   User.findById(req.params.id, (error, data) => {
+    console.log("here");
     if (error) {
       console.log(error);
     } else {

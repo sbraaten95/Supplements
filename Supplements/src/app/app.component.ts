@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SupplementsService } from './supplements.service';
+import { UserService } from './users.service';
+
+import { User } from './model/user';
 
 @Component({
   selector: 'app-root',
@@ -8,31 +10,24 @@ import { SupplementsService } from './supplements.service';
 })
 export class AppComponent implements OnInit {
   title = 'Supplements';
-  currentUser = {};
+  currentUser = new User();
   profileUrl = `profile/${localStorage.getItem('access_token')}`;
   _this = this;
 
-  constructor(public supplement: SupplementsService) {
-    this.getCurrentUser();
-  }
+  constructor(public userService: UserService) {}
 
-  ngOnInit() {
-    this.getCurrentUser();
-  }
+  ngOnInit() {}
 
   logout() {
-    this.supplement.logout();
+    this.userService.logout();
   }
 
   loggedIn() {
-    return this.supplement.isLoggedIn();
+    return this.userService.isLoggedIn();
   }
 
   getCurrentUser() {
-    this.supplement.getCurrentUser(this._this, (_this, data) => {
-      _this.currentUser = data;
-      _this.profileUrl += data.email;
-    });
-    console.log(this.currentUser);
+    console.log(this.userService.currentUser);
+    this.currentUser = this.userService.currentUser;
   }
 }
