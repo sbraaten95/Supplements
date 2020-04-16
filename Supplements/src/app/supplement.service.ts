@@ -6,6 +6,7 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { Supplement } from './model/supplement';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ import {
 export class SupplementService {
   baseUri: string = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+  Supplement = new Supplement();
 
   constructor(private http: HttpClient) {}
 

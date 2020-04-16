@@ -20,6 +20,7 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 
 import { UserService } from './users.service';
 import { LoginComponent } from './login/login.component';
+import { SupplementComponent } from './supplement/supplement.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LoginComponent } from './login/login.component';
     SetupComponent,
     QuestionnaireComponent,
     LoginComponent,
+    SupplementComponent,
   ],
   imports: [
     BrowserModule,

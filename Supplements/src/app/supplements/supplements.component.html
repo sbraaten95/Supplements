@@ -5,7 +5,7 @@
   </p>
 
   <div class="row justify-content-center">
-    <div class="col-md-4 register-employee">
+    <div class="col-md-4">
       <!-- form card register -->
       <div class="card-body">
         <form [formGroup]="supplementForm" (ngSubmit)="onSubmit()">
@@ -31,13 +31,13 @@
             <!-- error -->
             <div
               class="invalid-feedback"
-              *ngIf="submitted && myForm.decription.errors?.required"
+              *ngIf="submitted && myForm.description.errors?.required"
             >
               Enter your decription.
             </div>
             <div
               class="invalid-feedback"
-              *ngIf="submitted && myForm.decription.errors?.pattern"
+              *ngIf="submitted && myForm.description.errors?.pattern"
             >
               Enter valid decription.
             </div>
@@ -92,23 +92,32 @@
         <tr>
           <th scope="col">Supplement ID</th>
           <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Designation</th>
-          <th scope="col">Phone No</th>
-          <th scope="col center">Update</th>
+          <th scope="col">Description</th>
+          <th scope="col">Category</th>
+          <th scope="col">Purchase URL</th>
+          <th scope="col center">Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let Supplement of Supplement; let i = index">
-          <th scope="row">{{ Supplement._id }}</th>
-          <td>{{ Supplement.name }}</td>
-          <td>{{ Supplement.decription }}</td>
-          <td>{{ Supplement.category }}</td>
-          <td>{{ Supplement.purchaseUrl }}</td>
+        <tr *ngFor="let supp of Supplement; let i = index">
+          <th scope="row">{{ supp._id }}</th>
+          <td>
+            <a href="" [routerLink]="['/supplements/', supp._id]">{{
+              supp.name
+            }}</a>
+          </td>
+          <td>{{ supp.description }}</td>
+          <td>{{ supp.category }}</td>
+          <td>{{ supp.purchaseUrl }}</td>
           <td class="text-center edit-block">
-            <!-- <span class="delete" (click)="removeSupplement(Supplement, i)">
+            <!-- <span class="delete" (click)="removeSupplement(supp, i)">
             <button type="button" class="btn btn-danger btn-sm">Delete</button>
           </span> -->
+            <span class="delete" (click)="removeSupplement(supp, i)">
+              <button type="button" class="btn btn-danger btn-sm">
+                Delete
+              </button>
+            </span>
           </td>
         </tr>
       </tbody>

@@ -7,6 +7,7 @@ let Supplement = require("../models/Supplement");
 
 // Add User
 supplementRoute.route("/supplements/create").post((req, res, next) => {
+  console.log(req);
   Supplement.create(req.body, (error, data) => {
     if (error) {
       return next(error);
@@ -59,7 +60,7 @@ supplementRoute.route("/supplements/:id").put((req, res, next) => {
 });
 
 // Delete Supplement
-supplementRoute.route("/delete/:id").delete((req, res) => {
+supplementRoute.route("/supplements/:id").delete((req, res) => {
   Supplement.deleteOne({ _id: req.params.id }, (error, data) => {
     console.log(req.params);
     if (error) {

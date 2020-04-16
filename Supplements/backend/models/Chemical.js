@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let Supplement = new Schema(
+let Chemical = new Schema(
   {
     name: {
       type: String,
@@ -12,13 +12,10 @@ let Supplement = new Schema(
     category: {
       type: String,
     },
-    purchaseUrl: {
-      type: String,
-    },
   },
   {
-    collection: "supplements",
+    collection: "chemicals",
   }
 );
 
-module.exports = mongoose.model("Supplement", Supplement);
+module.exports = mongoose.model("Chemical", Chemical);

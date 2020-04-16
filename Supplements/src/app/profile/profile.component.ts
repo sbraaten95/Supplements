@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   currentUser: User;
-  userName: '';
-  userEmail: '';
+  userName = '';
+  userEmail = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,8 +21,9 @@ export class ProfileComponent implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.userService.getUser(id).subscribe((res) => {
       this.currentUser = res;
+      this.userName = this.currentUser.name;
+      this.userEmail = this.currentUser.email;
     });
-    this.populateData();
   }
 
   ngOnInit(): void {}
@@ -40,8 +41,4 @@ export class ProfileComponent implements OnInit {
   //   });
   //   this.readUser();
   // }
-
-  populateData() {
-    this.currentUser = this.userService.currentUser;
-  }
 }
