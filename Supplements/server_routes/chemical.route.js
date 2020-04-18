@@ -3,7 +3,7 @@ const app = express();
 const chemicalRoute = express.Router();
 
 // User model
-let Chemical = require("../models/chemical");
+let Chemical = require("../server_models/chemical");
 
 // Add User
 chemicalRoute.route("/chemicals/create").post((req, res, next) => {

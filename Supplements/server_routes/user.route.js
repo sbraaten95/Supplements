@@ -3,7 +3,7 @@ const app = express();
 const userRoute = express.Router();
 
 // User model
-let User = require("../models/User");
+let User = require("../server_models/User");
 
 // Add User
 userRoute.route("/users/register").post((req, res, next) => {

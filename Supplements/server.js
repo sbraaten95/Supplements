@@ -3,7 +3,7 @@ let express = require("express"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   bodyParser = require("body-parser"),
-  dbConfig = require("./database/db");
+  dbConfig = require("./server_database/db");
 
 // Connecting with mongo db
 mongoose.Promise = global.Promise;
@@ -21,8 +21,8 @@ mongoose
   );
 
 // Setting up port with express js
-const userRoute = require("../Supplements/routes/user.route");
-const suppRoute = require("../Supplements/routes/supplement.route");
+const userRoute = require("../Supplements/server_routes/user.route");
+const suppRoute = require("../Supplements/server_routes/supplement.route");
 const app = express();
 app.use(bodyParser.json());
 app.use(

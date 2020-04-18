@@ -3,7 +3,7 @@ const app = express();
 const supplementRoute = express.Router();
 
 // User model
-let Supplement = require("../models/Supplement");
+let Supplement = require("../server_models/Supplement");
 
 // Add User
 supplementRoute.route("/supplements/create").post((req, res, next) => {
