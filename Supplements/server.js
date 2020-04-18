@@ -21,8 +21,8 @@ mongoose
   );
 
 // Setting up port with express js
-const userRoute = require("../Supplements/server_routes/user.route");
-const suppRoute = require("../Supplements/server_routes/supplement.route");
+const userRoute = require("./server_routes/user.route");
+const suppRoute = require("./server_routes/supplement.route");
 const app = express();
 app.use(bodyParser.json());
 app.use(
