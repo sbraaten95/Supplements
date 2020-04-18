@@ -31,8 +31,7 @@ app.use(
   })
 );
 app.use(cors());
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+app.use(express.static("../dist/"));
 app.use("/api", userRoute);
 app.use("/api", suppRoute);
 
