@@ -31,8 +31,8 @@ app.use(
   })
 );
 app.use(cors());
-app.use(express.static(path.join(__dirname, "dist/mean-stack-crud-app")));
-app.use("/", express.static(path.join(__dirname, "dist/mean-stack-crud-app")));
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 app.use("/api", userRoute);
 app.use("/api", suppRoute);
 
