@@ -21,6 +21,11 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { UserService } from './users.service';
 import { LoginComponent } from './login/login.component';
 import { SupplementComponent } from './supplement/supplement.component';
+import { NervousSystemComponent } from './nervous-system/nervous-system.component';
+import { CardiorespiratorySystemComponent } from './cardiorespiratory-system/cardiorespiratory-system.component';
+import { DigestiveSystemComponent } from './digestive-system/digestive-system.component';
+import { ImmuneSystemComponent } from './immune-system/immune-system.component';
+import { MuscularSystemComponent } from './muscular-system/muscular-system.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,11 @@ import { SupplementComponent } from './supplement/supplement.component';
     QuestionnaireComponent,
     LoginComponent,
     SupplementComponent,
+    NervousSystemComponent,
+    CardiorespiratorySystemComponent,
+    DigestiveSystemComponent,
+    ImmuneSystemComponent,
+    MuscularSystemComponent,
   ],
   imports: [
     BrowserModule,
