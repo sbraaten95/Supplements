@@ -6,8 +6,11 @@ let express = require("express"),
 
 // Connecting with mongo db
 mongoose.Promise = global.Promise;
+herokuDB =
+  "mongodb://sbraaten95:Melvin9463!@ds031721.mlab.com:31721/heroku_q9l0f8l0";
+console.log(herokuDB);
 mongoose
-  .connect(process.env.MONGODB_URI || dbConfig.db, {
+  .connect(herokuDB || dbConfig.db, {
     useNewUrlParser: true,
   })
   .then(
