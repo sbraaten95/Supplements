@@ -26,6 +26,7 @@ import { CardiorespiratorySystemComponent } from './cardiorespiratory-system/car
 import { DigestiveSystemComponent } from './digestive-system/digestive-system.component';
 import { ImmuneSystemComponent } from './immune-system/immune-system.component';
 import { MuscularSystemComponent } from './muscular-system/muscular-system.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

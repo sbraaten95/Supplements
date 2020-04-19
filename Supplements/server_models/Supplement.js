@@ -15,6 +15,9 @@ let Supplement = new Schema(
     purchaseUrl: {
       type: String,
     },
+    dopamineLevel: {
+      type: Number,
+    },
   },
   {
     collection: "supplements",

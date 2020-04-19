@@ -3,7 +3,8 @@ let express = require("express"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   bodyParser = require("body-parser"),
-  dbConfig = require("./server_database/db");
+  dbConfig = require("./server_database/db"),
+  router = express.Router();
 
 // Connecting with mongo db
 mongoose.Promise = global.Promise;
@@ -35,6 +36,26 @@ var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 app.use("/api", userRoute);
 app.use("/api", suppRoute);
+
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://boiling-woodland-09126.herokuapp.com"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+// ATTEMPT TO FIX 404 ERROR
+router.use("/", express.static("app", { redirect: false }));
+
+// rewrite virtual urls to angular app to enable refreshing of internal pages
+router.get("*", function (req, res, next) {
+  res.sendFile(path.resolve("app/index.html"));
+});
 
 // Create port
 const port = process.env.PORT || 4000;
