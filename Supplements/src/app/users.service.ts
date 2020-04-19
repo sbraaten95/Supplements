@@ -14,7 +14,7 @@ import { User } from './model/user';
   providedIn: 'root',
 })
 export class UserService {
-  baseUri: string = 'http://localhost:4000/api';
+  baseUri: string = 'https://boiling-woodland-09126.herokuapp.com/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = new User();
 

@@ -16,7 +16,7 @@ import { User } from './model/user';
   providedIn: 'root',
 })
 export class AuthService {
-  API_URL: string = 'http://localhost:4000';
+  API_URL: string = 'https://boiling-woodland-09126.herokuapp.com/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
