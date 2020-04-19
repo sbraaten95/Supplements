@@ -1,10 +1,8 @@
 let express = require("express"),
-  path = require("path"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   bodyParser = require("body-parser"),
-  dbConfig = require("./server_database/db"),
-  router = express.Router();
+  dbConfig = require("./server_database/db");
 
 // Connecting with mongo db
 mongoose.Promise = global.Promise;
@@ -47,14 +45,6 @@ app.use(function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
-});
-
-// ATTEMPT TO FIX 404 ERROR
-router.use("/", express.static("app", { redirect: false }));
-
-// rewrite virtual urls to angular app to enable refreshing of internal pages
-router.get("*", function (req, res, next) {
-  res.sendFile(path.resolve("app/index.html"));
 });
 
 // Create port
