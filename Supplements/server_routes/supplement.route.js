@@ -7,6 +7,7 @@ let Supplement = require("../server_models/Supplement");
 
 // Add User
 supplementRoute.route("/supplements/create").post((req, res, next) => {
+  console.log(req.body);
   Supplement.create(req.body, (error, data) => {
     console.log("here");
     if (error) {
@@ -43,9 +44,7 @@ supplementRoute.route("/supplements/:id").get((req, res) => {
 
 // Get supplements that match depression criteria
 supplementRoute.route("/supplements/depression").get((req, res) => {
-  console.log("herre");
   Supplement.find({ depression: { $gte: 5 } }, (error, data) => {
-    console.log("here");
     if (error) {
       console.log(error);
     } else {

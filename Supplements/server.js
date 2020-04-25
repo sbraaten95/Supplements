@@ -37,17 +37,18 @@ app.use(express.static(distDir));
 app.use("/api", userRoute);
 app.use("/api", suppRoute);
 
-// app.use(function (req, res, next) {
-//   res.header(
-//     "Access-Control-Allow-Origin",
-//     "https://boiling-woodland-09126.herokuapp.com"
-//   );
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://boiling-woodland-09126.herokuapp.com"
+  );
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // Create port
 const port = process.env.PORT || 4000;
