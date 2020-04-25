@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
       this.currentUser = res;
       this.userName = this.currentUser.name;
       this.userEmail = this.currentUser.email;
+      console.log(res);
     });
   }
 

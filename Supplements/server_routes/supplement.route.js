@@ -20,6 +20,7 @@ supplementRoute.route("/supplements/create").post((req, res, next) => {
 
 // Get All Supplements
 supplementRoute.route("/supplements").get((req, res) => {
+  console.log("now");
   Supplement.find((error, data) => {
     if (error) {
       return next(error);
@@ -32,6 +33,96 @@ supplementRoute.route("/supplements").get((req, res) => {
 // Get single Supplement
 supplementRoute.route("/supplements/:id").get((req, res) => {
   Supplement.findById(req.params.id, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match depression criteria
+supplementRoute.route("/supplements/depression").get((req, res) => {
+  console.log("herre");
+  Supplement.find({ depression: { $gte: 5 } }, (error, data) => {
+    console.log("here");
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match anxiety criteria
+supplementRoute.route("/supplements/anxiety").get((req, res) => {
+  Supplement.find({ anxiety: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match sleep criteria
+supplementRoute.route("/supplements/sleep").get((req, res) => {
+  Supplement.find({ sleep: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match productivity criteria
+supplementRoute.route("/supplements/productivity").get((req, res) => {
+  Supplement.find({ productivity: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match heartHealth criteria
+supplementRoute.route("/supplements/heartHealth").get((req, res) => {
+  Supplement.find({ heartHealth: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match immuneSystem criteria
+supplementRoute.route("/supplements/immuneSystem").get((req, res) => {
+  Supplement.find({ immuneSystem: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match exercise criteria
+supplementRoute.route("/supplements/exercise").get((req, res) => {
+  Supplement.find({ exercise: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get supplements that match memory criteria
+supplementRoute.route("/supplements/memory").get((req, res) => {
+  Supplement.find({ memory: { $gte: 5 } }, (error, data) => {
     if (error) {
       console.log(error);
     } else {

@@ -15,7 +15,28 @@ let Supplement = new Schema(
     purchaseUrl: {
       type: String,
     },
-    dopamineLevel: {
+    depression: {
+      type: Number,
+    },
+    anxiety: {
+      type: Number,
+    },
+    sleep: {
+      type: Number,
+    },
+    productivity: {
+      type: Number,
+    },
+    heartHealth: {
+      type: Number,
+    },
+    immuneSystem: {
+      type: Number,
+    },
+    exercise: {
+      type: Number,
+    },
+    memory: {
       type: Number,
     },
   },

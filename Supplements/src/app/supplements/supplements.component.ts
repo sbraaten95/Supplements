@@ -40,6 +40,14 @@ export class SupplementsComponent implements OnInit {
       description: ['', [Validators.required]],
       category: ['', [Validators.required]],
       purchaseUrl: ['', [Validators.required]],
+      depression: [],
+      anxiety: [],
+      sleep: [],
+      productivity: [],
+      heartHealth: [],
+      immuneSystem: [],
+      exercise: [],
+      memory: [],
     });
   }
 

@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SetupComponent } from './setup/setup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { LoginComponent } from './login/login.component';
+import { ResultsComponent } from './results/results.component';
 
 import { AuthGuard } from './auth.guard';
 import { NervousSystemComponent } from './nervous-system/nervous-system.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'myplan', component: MyplanComponent },
   { path: 'setup', component: SetupComponent },
   { path: 'questionnaire', component: QuestionnaireComponent },
+  { path: 'results', component: ResultsComponent },
   { path: 'nervous_system', component: NervousSystemComponent },
   {
     path: 'cardiorespiratory_system',

@@ -27,6 +27,7 @@ import { DigestiveSystemComponent } from './digestive-system/digestive-system.co
 import { ImmuneSystemComponent } from './immune-system/immune-system.component';
 import { MuscularSystemComponent } from './muscular-system/muscular-system.component';
 import { RouterModule } from '@angular/router';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RouterModule } from '@angular/router';
     DigestiveSystemComponent,
     ImmuneSystemComponent,
     MuscularSystemComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
