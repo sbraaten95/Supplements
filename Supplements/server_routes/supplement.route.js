@@ -33,6 +33,7 @@ supplementRoute.route("/supplements").get((req, res) => {
 
 // Get single Supplement
 supplementRoute.route("/supplements/:id").get((req, res) => {
+  console.log("YOOOO");
   Supplement.findById(req.params.id, (error, data) => {
     if (error) {
       console.log(error);
@@ -44,6 +45,7 @@ supplementRoute.route("/supplements/:id").get((req, res) => {
 
 // Get supplements that match depression criteria
 supplementRoute.route("/supplements/depression").get((req, res) => {
+  console.log("or what");
   Supplement.find({ depression: { $gte: 5 } }, (error, data) => {
     if (error) {
       console.log(error);
