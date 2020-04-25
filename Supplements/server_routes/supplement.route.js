@@ -9,7 +9,6 @@ let Supplement = require("../server_models/Supplement");
 supplementRoute.route("/supplements/create").post((req, res, next) => {
   console.log(req.body);
   Supplement.create(req.body, (error, data) => {
-    console.log("here");
     if (error) {
       return next(error);
     } else {
@@ -25,18 +24,6 @@ supplementRoute.route("/supplements").get((req, res) => {
   Supplement.find((error, data) => {
     if (error) {
       return next(error);
-    } else {
-      res.json(data);
-    }
-  });
-});
-
-// Get single Supplement
-supplementRoute.route("/supplements/:id").get((req, res) => {
-  console.log("YOOOO");
-  Supplement.findById(req.params.id, (error, data) => {
-    if (error) {
-      console.log(error);
     } else {
       res.json(data);
     }
@@ -124,6 +111,18 @@ supplementRoute.route("/supplements/exercise").get((req, res) => {
 // Get supplements that match memory criteria
 supplementRoute.route("/supplements/memory").get((req, res) => {
   Supplement.find({ memory: { $gte: 5 } }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Get single Supplement
+supplementRoute.route("/supplements/:id").get((req, res) => {
+  console.log("YOOOO");
+  Supplement.findById(req.params.id, (error, data) => {
     if (error) {
       console.log(error);
     } else {
