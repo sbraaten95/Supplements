@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Will implement plan into webpage later on.
+
 let Plan = new Schema(
   {
     user: {

@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
+// bcrypt is used for password encryption
+
 let User = new Schema(
   {
     name: {

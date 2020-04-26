@@ -22,11 +22,9 @@ export class UserService {
 
   getCurrentUser() {
     let id = localStorage.getItem('access_token');
-    console.log(id);
     this.getUser(id).subscribe((res) => {
       this.currentUser = res;
     });
-    console.log(this.currentUser);
   }
 
   // Create
@@ -69,7 +67,6 @@ export class UserService {
   // Get employee
   getUser(id): Observable<any> {
     let url = `${this.baseUri}/users/${id}`;
-    console.log(url);
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};

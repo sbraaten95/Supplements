@@ -1,3 +1,7 @@
+/*
+ * This is part of the authorization.
+ */
+
 import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,

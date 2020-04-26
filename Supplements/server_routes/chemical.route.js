@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const chemicalRoute = express.Router();
 
-// User model
+// Chemical model
 let Chemical = require("../server_models/chemical");
 
-// Add User
+// Add Chemical
 chemicalRoute.route("/chemicals/create").post((req, res, next) => {
   console.log(req);
   Chemical.create(req.body, (error, data) => {

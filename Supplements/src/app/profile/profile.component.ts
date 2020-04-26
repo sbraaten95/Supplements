@@ -23,23 +23,8 @@ export class ProfileComponent implements OnInit {
       this.currentUser = res;
       this.userName = this.currentUser.name;
       this.userEmail = this.currentUser.email;
-      console.log(res);
     });
   }
 
   ngOnInit(): void {}
-
-  // Get all users, delete one user and get all users
-  // readUser() {
-  //   this.userService.getUsers().subscribe((data) => {
-  //     this.User = data;
-  //   });
-  // }
-
-  // removeUser(user, index) {
-  //   this.userService.deleteUser(user._id).subscribe((data) => {
-  //     this.User.splice(index, 1);
-  //   });
-  //   this.readUser();
-  // }
 }

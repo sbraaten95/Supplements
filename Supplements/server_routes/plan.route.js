@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const planRoute = express.Router();
 
-// User model
+// Will incorporate this later.
+
+// Plan model
 let Plan = require("../server_models/Plan");
 let Supplement = mongoose.model("Supplement");
 
-// Add User
+// Add Plan
 planRoute.route("/plans/create").post((req, res, next) => {
   Plan.create(req.body, (error, data) => {
     console.log("here");

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -26,7 +27,6 @@ import { CardiorespiratorySystemComponent } from './cardiorespiratory-system/car
 import { DigestiveSystemComponent } from './digestive-system/digestive-system.component';
 import { ImmuneSystemComponent } from './immune-system/immune-system.component';
 import { MuscularSystemComponent } from './muscular-system/muscular-system.component';
-import { RouterModule } from '@angular/router';
 import { ResultsComponent } from './results/results.component';
 
 @NgModule({
@@ -63,6 +63,7 @@ import { ResultsComponent } from './results/results.component';
       useClass: AuthInterceptor,
       multi: true,
     },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })

@@ -1,71 +1,73 @@
-<div class="row mb-3">
-  <div class="col-sm text-center">
-    <button
-      type="button"
-      class="btn btn-primary btn-lg"
-      data-toggle="modal"
-      data-target="#loginFormModal"
-    >
-      Log In
-    </button>
-    <div class="modal" id="loginFormModal" tabindex="1" role="dialog">
-      <div class="modal-dialog bg-white" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Log In</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form
-              id="loginForm1"
-              [formGroup]="loginForm"
-              (ngSubmit)="loginUser()"
-            >
-              <div class="form-group">
-                <label for="inputEmail3">Email Address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  formControlName="email"
-                  id="inputEmail3"
-                />
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                  id="inputPassword3"
-                />
-              </div>
-              <!--Forgot password?-->
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              form="loginForm1"
-              data-toggle="modal"
-              data-target="#loginFormModal"
-            >
-              Log In
-            </button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-sm text-center">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        data-toggle="modal"
+        data-target="#loginFormModal"
+      >
+        Log In
+      </button>
+      <div class="modal" id="loginFormModal" tabindex="1" role="dialog">
+        <div class="modal-dialog bg-white" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Log In</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form
+                id="loginForm1"
+                [formGroup]="loginForm"
+                (ngSubmit)="loginUser()"
+              >
+                <div class="form-group">
+                  <label for="inputEmail3">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    id="inputEmail3"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    formControlName="password"
+                    id="inputPassword3"
+                  />
+                </div>
+                <!--Forgot password?-->
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                form="loginForm1"
+                data-toggle="modal"
+                data-target="#loginFormModal"
+              >
+                Log In
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>

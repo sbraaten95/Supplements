@@ -1,3 +1,5 @@
+// This will be used to connect the angular project with the server app with respect to Plan based data transfers.
+
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';

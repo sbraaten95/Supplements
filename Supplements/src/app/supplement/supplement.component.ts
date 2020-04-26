@@ -28,10 +28,7 @@ export class SupplementComponent implements OnInit {
       this.suppCat = this.Supplement.category;
       this.suppUrl = this.Supplement.purchaseUrl;
     });
-    this.populateData();
   }
 
   ngOnInit(): void {}
-
-  populateData() {}
 }

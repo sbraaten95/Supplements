@@ -1,4 +1,4 @@
-<div class="m-auto">
+<div class="m-auto container">
   <div class="row mb-3" id="setupContainer">
     <div class="col-sm text-center">
       <button
@@ -44,7 +44,7 @@
                   />
                   <div
                     class="invalid-feedback"
-                    *ngIf="submitted && myForm.name.errors?.required"
+                    *ngIf="submitted && myUserForm.name.errors?.required"
                   >
                     Name is required.
                   </div>
@@ -60,13 +60,13 @@
                   />
                   <div
                     class="invalid-feedback"
-                    *ngIf="submitted && myForm.email.errors?.required"
+                    *ngIf="submitted && myUserForm.email.errors?.required"
                   >
                     Enter your email.
                   </div>
                   <div
                     class="invalid-feedback"
-                    *ngIf="submitted && myForm.email.errors?.pattern"
+                    *ngIf="submitted && myUserForm.email.errors?.pattern"
                   >
                     Enter valid email.
                   </div>
@@ -127,48 +127,65 @@
       >
         Log In
       </button>
-      <div class="modal" id="loginFormModal" tabindex="1" role="dialog">
+      <div class="modal" id="loginFormModal" tabindex="-1" role="dialog">
         <div class="modal-dialog bg-white" role="document">
-          <div class="modal-header">
-            <h5 class="modal-title">Log In</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="loginForm">
-              <div class="form-group">
-                <label for="inputEmail">Email Address</label>
-                <input type="email" class="form-control" id="inputEmail2" />
-              </div>
-              <div class="form-group">
-                <label for="inputEmail">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="inputPassword2"
-                />
-              </div>
-              <!--Forgot password?-->
-            </form>
-          </div>
-          <div class="modal-footer">
-            <!--Don't forget to switch type to submit-->
-            <button type="button" class="btn btn-primary" form="loginForm">
-              Log In
-            </button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Log In</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form
+                id="loginForm"
+                [formGroup]="userLoginForm"
+                (ngSubmit)="login()"
+              >
+                <div class="form-group">
+                  <label for="inputEmail">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail2"
+                    formControlName="email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword2"
+                    formControlName="password"
+                  />
+                </div>
+                <!--Forgot password?-->
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                form="loginForm"
+                data-toggle="modal"
+                data-target="#loginFormModal"
+              >
+                Log In
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>

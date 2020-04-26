@@ -41,7 +41,6 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   sendResults() {
-    console.log(this.myForm.depression);
     this.resultService.depressionResult = new Number(
       this.myForm.depression.value
     );

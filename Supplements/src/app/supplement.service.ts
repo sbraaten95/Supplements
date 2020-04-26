@@ -13,7 +13,6 @@ import { Supplement } from './model/supplement';
 })
 export class SupplementService {
   baseUri: string = 'https://boiling-woodland-09126.herokuapp.com/api';
-  // baseUri: string = 'https://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   Supplement = new Supplement();
 

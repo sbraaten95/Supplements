@@ -2,12 +2,11 @@ const express = require("express");
 const app = express();
 const supplementRoute = express.Router();
 
-// User model
+// Supplement model
 let Supplement = require("../server_models/Supplement");
 
-// Add User
+// Add Supplement
 supplementRoute.route("/supplements/create").post((req, res, next) => {
-  console.log(req.body);
   Supplement.create(req.body, (error, data) => {
     if (error) {
       return next(error);
@@ -20,7 +19,6 @@ supplementRoute.route("/supplements/create").post((req, res, next) => {
 
 // Get All Supplements
 supplementRoute.route("/supplements").get((req, res) => {
-  console.log("now");
   Supplement.find((error, data) => {
     if (error) {
       return next(error);
@@ -32,7 +30,6 @@ supplementRoute.route("/supplements").get((req, res) => {
 
 // Get supplements that match depression criteria
 supplementRoute.route("/supplements/depression").get((req, res) => {
-  console.log("or what");
   Supplement.find({ depression: { $gte: 5 } }, (error, data) => {
     if (error) {
       console.log(error);
@@ -121,7 +118,6 @@ supplementRoute.route("/supplements/memory").get((req, res) => {
 
 // Get single Supplement
 supplementRoute.route("/supplements/:id").get((req, res) => {
-  console.log("YOOOO");
   Supplement.findById(req.params.id, (error, data) => {
     if (error) {
       console.log(error);
@@ -153,7 +149,6 @@ supplementRoute.route("/supplements/:id").put((req, res, next) => {
 // Delete Supplement
 supplementRoute.route("/supplements/:id").delete((req, res) => {
   Supplement.deleteOne({ _id: req.params.id }, (error, data) => {
-    console.log(req.params);
     if (error) {
       res.json(error);
     } else {

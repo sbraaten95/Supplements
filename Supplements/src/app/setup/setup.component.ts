@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../users.service';
-import { AppComponent } from '../app.component';
 import { AuthService } from '../auth.service';
-import { User } from '../model/user';
 
 @Component({
   selector: 'app-setup',
@@ -15,15 +13,14 @@ import { User } from '../model/user';
 export class SetupComponent implements OnInit {
   submitted = false;
   userForm: FormGroup;
-  currentUser: User;
+  userLoginForm: FormGroup;
 
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
     private router: Router,
     private ngZone: NgZone,
-    private userService: UserService,
-    private appComponent: AppComponent
+    private userService: UserService
   ) {
     this.mainForm();
   }
@@ -42,10 +39,14 @@ export class SetupComponent implements OnInit {
       ],
       password: [''],
     });
+    this.userLoginForm = this.fb.group({
+      email: [''],
+      password: [''],
+    });
   }
 
   // Getter to access form control
-  get myForm() {
+  get myUserForm() {
     return this.userForm.controls;
   }
 
@@ -63,5 +64,10 @@ export class SetupComponent implements OnInit {
         }
       );
     }
+  }
+
+  login() {
+    console.log('hello');
+    this.userService.login(this.userLoginForm.value);
   }
 }

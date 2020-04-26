@@ -1,3 +1,8 @@
+/*
+ * This is in order to prevent people from accessing the URLs of people's profiles
+ * when they don't log in. Authorization.
+ */
+
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,

@@ -1,35 +1,155 @@
-<h1>Results</h1>
-<h3 *ngIf="this.depressionResult >= 5">
-  Depression
-</h3>
-<div *ngIf="this.depressionResult >= 5">
-  <p *ngFor="let supp of this.depressionSupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.anxietyResult >= 5">Anxiety</h3>
-<div *ngIf="this.anxietyResult >= 5">
-  <p *ngFor="let supp of this.anxietySupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.sleepResult >= 5">Sleep</h3>
-<div *ngIf="this.sleepResult >= 5">
-  <p *ngFor="let supp of this.sleepSupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.productivityResult >= 5">Productivity</h3>
-<div *ngIf="this.productivityResult >= 5">
-  <p *ngFor="let supp of this.productivitySupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.heartHealthResult >= 5">Heart Health</h3>
-<div *ngIf="this.heartHealthResult >= 5">
-  <p *ngFor="let supp of this.heartHealthSupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.immuneSystemResult >= 5">Immune System</h3>
-<div *ngIf="this.immuneSystemResult >= 5">
-  <p *ngFor="let supp of this.immuneSystemSupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.exerciseResult >= 5">Exercise</h3>
-<div *ngIf="this.exerciseResult >= 5">
-  <p *ngFor="let supp of this.exerciseSupplements">{{ supp }}</p>
-</div>
-<h3 *ngIf="this.memoryResult >= 5">Memory</h3>
-<div *ngIf="this.memoryResult >= 5">
-  <p *ngFor="let supp of this.memorySupplements">{{ supp }}</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Results</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>
+        We brought you the supplements that are the most effective for the
+        things you indicated are most crucial. The higher rating they are, the
+        more effective or universal they are. Click on one of them to learn
+        more.
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <h3 *ngIf="this.depressionResult >= 5">
+        Depression
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.depressionResult >= 5">
+        <p *ngFor="let supp of this.depressionSupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.depression }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.anxietyResult >= 5">Anxiety</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.anxietyResult >= 5">
+        <p *ngFor="let supp of this.anxietySupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.anxiety }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.sleepResult >= 5">Sleep</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.sleepResult >= 5">
+        <p *ngFor="let supp of this.sleepSupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.sleep }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.productivityResult >= 5">Productivity</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.productivityResult >= 5">
+        <p *ngFor="let supp of this.productivitySupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.productivity }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.heartHealthResult >= 5">Heart Health</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.heartHealthResult >= 5">
+        <p *ngFor="let supp of this.heartHealthSupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.heartHealth }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.immuneSystemResult >= 5">Immune System</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.immuneSystemResult >= 5">
+        <p *ngFor="let supp of this.immuneSystemSupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.immuneSystem }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.exerciseResult >= 5">Exercise</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.exerciseResult >= 5">
+        <p *ngFor="let supp of this.exerciseSupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.exercise }}/10
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 *ngIf="this.memoryResult >= 5">Memory</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.memoryResult >= 5">
+        <p *ngFor="let supp of this.memorySupplements">
+          <a href="" [routerLink]="['/supplements/', supp._id]">{{
+            supp.name
+          }}</a
+          >: {{ supp.memory }}/10
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

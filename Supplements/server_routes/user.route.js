@@ -40,7 +40,6 @@ userRoute.route("/users").get((req, res) => {
 
 // Get single User
 userRoute.route("/users/:id").get((req, res) => {
-  console.log(req);
   User.findById(req.params.id, (error, data) => {
     console.log("here");
     if (error) {
@@ -73,7 +72,6 @@ userRoute.route("/update/:id").put((req, res, next) => {
 // Delete User
 userRoute.route("/delete/:id").delete((req, res) => {
   User.deleteOne({ _id: req.params.id }, (error, data) => {
-    console.log(req.params);
     if (error) {
       res.json(error);
     } else {

@@ -25,9 +25,4 @@ export class AppComponent implements OnInit {
   loggedIn() {
     return this.userService.isLoggedIn();
   }
-
-  getCurrentUser() {
-    console.log(this.userService.currentUser);
-    this.currentUser = this.userService.currentUser;
-  }
 }
