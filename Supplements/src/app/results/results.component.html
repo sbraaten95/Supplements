@@ -52,12 +52,12 @@
   </div>
   <div class="row">
     <div class="col">
-      <h3 *ngIf="this.sleepResult >= 5">Sleep</h3>
+      <h3 *ngIf="this.sleepResult <= 5">Sleep</h3>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <div *ngIf="this.sleepResult >= 5">
+      <div *ngIf="this.sleepResult <= 5">
         <p *ngFor="let supp of this.sleepSupplements">
           <a href="" [routerLink]="['/supplements/', supp._id]">{{
             supp.name
@@ -69,12 +69,12 @@
   </div>
   <div class="row">
     <div class="col">
-      <h3 *ngIf="this.productivityResult >= 5">Productivity</h3>
+      <h3 *ngIf="this.productivityResult <= 5">Productivity</h3>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <div *ngIf="this.productivityResult >= 5">
+      <div *ngIf="this.productivityResult <= 5">
         <p *ngFor="let supp of this.productivitySupplements">
           <a href="" [routerLink]="['/supplements/', supp._id]">{{
             supp.name
@@ -86,12 +86,12 @@
   </div>
   <div class="row">
     <div class="col">
-      <h3 *ngIf="this.heartHealthResult >= 5">Heart Health</h3>
+      <h3 *ngIf="this.heartHealthResult <= 5">Heart Health</h3>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <div *ngIf="this.heartHealthResult >= 5">
+      <div *ngIf="this.heartHealthResult <= 5">
         <p *ngFor="let supp of this.heartHealthSupplements">
           <a href="" [routerLink]="['/supplements/', supp._id]">{{
             supp.name
@@ -103,12 +103,12 @@
   </div>
   <div class="row">
     <div class="col">
-      <h3 *ngIf="this.immuneSystemResult >= 5">Immune System</h3>
+      <h3 *ngIf="this.immuneSystemResult <= 5">Immune System</h3>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <div *ngIf="this.immuneSystemResult >= 5">
+      <div *ngIf="this.immuneSystemResult <= 5">
         <p *ngFor="let supp of this.immuneSystemSupplements">
           <a href="" [routerLink]="['/supplements/', supp._id]">{{
             supp.name
