@@ -22,7 +22,11 @@ userRoute.route("/users/login").post((req, res) => {
     if (error) {
       return res.json(error);
     } else {
-      res.json(data);
+      if (data.validPassword(req.body.password)) {
+        return res.json(data);
+      } else {
+        return "Password invalid";
+      }
     }
   });
 });
