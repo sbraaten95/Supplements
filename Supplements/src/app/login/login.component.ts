@@ -11,6 +11,7 @@ import { UserService } from '../users.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loginErrors: string;
 
   constructor(
     public fb: FormBuilder,
@@ -37,5 +38,6 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.userService.login(this.loginForm.value);
+    this.loginErrors = 'Login failed. Try again.';
   }
 }
