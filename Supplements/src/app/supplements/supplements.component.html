@@ -40,14 +40,17 @@
       </table>
     </div>
   </div>
-  <div class="row">
+  <div *ngIf="currentUserId == '5e9cd9e08e5b5f00049942f4'" class="row">
     <div class="col">
       <h2 class="text-center">
         Add a Supplement
       </h2>
     </div>
   </div>
-  <div class="row justify-content-center my-2">
+  <div
+    *ngIf="currentUserId == '5e9cd9e08e5b5f00049942f4'"
+    class="row justify-content-center my-2"
+  >
     <!-- form card register -->
     <form [formGroup]="supplementForm" (ngSubmit)="onSubmit()">
       <div class="row">

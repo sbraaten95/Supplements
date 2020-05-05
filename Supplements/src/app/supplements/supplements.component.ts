@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { SupplementService } from '../supplement.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-supplements',
@@ -12,6 +13,7 @@ import { SupplementService } from '../supplement.service';
 export class SupplementsComponent implements OnInit {
   submitted = false;
   supplementForm: FormGroup;
+  currentUserId: string;
   SupplementCategory: any = [
     'Amino Acid',
     'Vitamin',
@@ -30,6 +32,7 @@ export class SupplementsComponent implements OnInit {
   ) {
     this.mainForm();
     this.getSupplements();
+    this.currentUserId = localStorage.getItem('access_token');
   }
 
   ngOnInit(): void {}
