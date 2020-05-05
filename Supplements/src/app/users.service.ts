@@ -36,11 +36,14 @@ export class UserService {
   login(user: User) {
     let url = `${this.baseUri}/users/login`;
     return this.http.post<any>(url, user).subscribe((res: any) => {
-      localStorage.setItem('access_token', res[0]._id);
-      this.getUser(res[0]._id).subscribe((res) => {
-        this.currentUser = res;
-        this.router.navigate(['profile/' + res._id]);
-      });
+      console.log(res);
+      if (!res.message) {
+        localStorage.setItem('access_token', res._id);
+        this.getUser(res._id).subscribe((res) => {
+          this.currentUser = res;
+          this.router.navigate(['profile/' + res._id]);
+        });
+      }
     });
   }
 

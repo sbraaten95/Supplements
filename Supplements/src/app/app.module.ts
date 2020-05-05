@@ -28,6 +28,11 @@ import { DigestiveSystemComponent } from './digestive-system/digestive-system.co
 import { ImmuneSystemComponent } from './immune-system/immune-system.component';
 import { MuscularSystemComponent } from './muscular-system/muscular-system.component';
 import { ResultsComponent } from './results/results.component';
+import { AminoAcidsComponent } from './amino-acids/amino-acids.component';
+import { HerbalsComponent } from './herbals/herbals.component';
+import { VitaminsComponent } from './vitamins/vitamins.component';
+import { NootropicsComponent } from './nootropics/nootropics.component';
+import { MineralsComponent } from './minerals/minerals.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +52,11 @@ import { ResultsComponent } from './results/results.component';
     ImmuneSystemComponent,
     MuscularSystemComponent,
     ResultsComponent,
+    AminoAcidsComponent,
+    HerbalsComponent,
+    VitaminsComponent,
+    NootropicsComponent,
+    MineralsComponent,
   ],
   imports: [
     BrowserModule,
