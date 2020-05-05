@@ -18,7 +18,7 @@ userRoute.route("/users/register").post((req, res, next) => {
 });
 
 userRoute.route("/users/login").post((req, res) => {
-  User.find({ email: req.body.email }, (error, data) => {
+  User.findOne({ email: req.body.email }, (error, data) => {
     if (error) {
       return res.json(error);
     } else {
