@@ -25,7 +25,7 @@ userRoute.route("/users/login").post((req, res) => {
       if (data.validPassword(req.body.password)) {
         return res.json(data);
       } else {
-        return res.json({message: "Password invalid"};
+        return res.json({ message: "Password invalid" });
       }
     }
   });
